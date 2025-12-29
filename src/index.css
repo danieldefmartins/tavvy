@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* System fonts - SF Pro (iOS), Roboto (Android), system default (web) */
+
+@layer base {
+  :root {
+    /* MUVO Font Scale (Google Maps Readability) */
+    --text-page-title: 1.25rem;        /* 20px - Page/Section titles */
+    --text-place-name: 1.0625rem;      /* 17px - Place names */
+    --text-input: 1rem;                /* 16px - Search inputs */
+    --text-secondary: 0.9375rem;       /* 15px - Secondary info */
+    --text-chip: 0.875rem;             /* 14px - Filter chips, badges, meta */
+    --text-min: 0.875rem;              /* 14px - Minimum readable size */
+    
+    /* Font Weights */
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    
+    /* Line Heights */
+    --leading-tight: 1.3;
+    --leading-normal: 1.5;
+
+    /* MUVO Brand Color System */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 7%;
+
+    --card: 210 20% 98%;
+    --card-foreground: 0 0% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    /* MUVO Blue - Primary brand/action color */
+    --primary: 192 87% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-pressed: 193 85% 39%;
+    --primary-tint: 192 75% 95%;
+
+    /* Neutral secondary */
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 220 9% 46%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* MUVO Blue for accent/CTAs */
+    --accent: 192 87% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 192 87% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --trust: 192 87% 45%;
+    
+    /* Review Signal Colors - Solid backgrounds (for cards/list views) */
+    --signal-positive: 193 100% 38%;         /* MUVO Brand Blue #008fc0 */
+    --signal-neutral: 220 9% 46%;            /* Gray-500 #6b7280 */
+    --signal-negative: 25 95% 53%;           /* Orange-500 #F97316 */
+    
+    /* Review Signal Colors - Tinted backgrounds (for detail pages) */
+    --signal-positive-tint: 193 50% 92%;     /* Light blue tint */
+    --signal-positive-text: 193 100% 25%;    /* Dark blue text */
+    --signal-neutral-tint: 220 14% 92%;      /* Light gray tint */
+    --signal-neutral-text: 220 9% 30%;       /* Dark gray text */
+    --signal-negative-tint: 25 100% 95%;     /* Light orange tint */
+    --signal-negative-text: 21 91% 41%;      /* Dark orange text */
+    
+    /* Category Colors (for pins, chips, badges) */
+    --cat-rv-campground: 217 91% 60%;
+    --cat-rv-resort: 263 70% 58%;
+    --cat-boondocking: 142 76% 36%;
+    --cat-overnight-parking: 45 93% 47%;
+    --cat-dump-station: 25 95% 53%;
+    --cat-fresh-water: 189 94% 43%;
+    --cat-hookups: 263 70% 58%;
+    --cat-rest-area: 199 89% 48%;
+    --cat-scenic: 330 81% 60%;
+    --cat-trailhead: 142 71% 45%;
+    --cat-gas: 0 84% 60%;
+    --cat-service: 258 90% 66%;
+    --cat-groceries: 172 66% 50%;
+    --cat-laundry: 217 91% 60%;
+    --cat-wifi: 271 91% 65%;
+    --cat-pet-friendly: 84 81% 44%;
+    --cat-caution: 220 13% 10%;
+    --cat-default: 215 16% 47%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(192 87% 45%) 0%, hsl(199 89% 48%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 20% 98%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(210 20% 98%) 0%, hsl(210 20% 96%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(0 0% 7% / 0.04);
+    --shadow-md: 0 4px 12px hsl(0 0% 7% / 0.08);
+    --shadow-lg: 0 8px 24px hsl(0 0% 7% / 0.12);
+    --shadow-glow: 0 0 20px hsl(192 87% 45% / 0.25);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 9% 25%;
+    --sidebar-primary: 192 87% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 96%;
+    --sidebar-accent-foreground: 220 9% 46%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 192 87% 45%;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 222 40% 12%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 222 40% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    /* MUVO Blue in dark mode */
+    --primary: 192 87% 50%;
+    --primary-foreground: 222 47% 8%;
+    --primary-pressed: 192 85% 45%;
+    --primary-tint: 192 50% 15%;
+
+    --secondary: 222 35% 18%;
+    --secondary-foreground: 210 20% 80%;
+
+    --muted: 222 35% 18%;
+    --muted-foreground: 215 16% 55%;
+
+    --accent: 192 87% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 210 20% 95%;
+
+    --border: 222 30% 22%;
+    --input: 222 30% 22%;
+    --ring: 192 87% 50%;
+
+    --success: 142 70% 45%;
+    --warning: 38 85% 55%;
+    --trust: 192 87% 50%;
+    
+    /* Review Signal Colors - Solid backgrounds (for cards/list views) */
+    --signal-positive: 193 100% 45%;         /* MUVO Brand Blue - lighter for dark mode */
+    --signal-neutral: 220 9% 55%;            /* Gray-400 for dark mode */
+    --signal-negative: 25 95% 58%;           /* Orange-400 for dark mode */
+    
+    /* Review Signal Colors - Tinted backgrounds (for detail pages) */
+    --signal-positive-tint: 193 40% 18%;
+    --signal-positive-text: 193 70% 65%;
+    --signal-neutral-tint: 220 14% 22%;
+    --signal-neutral-text: 220 14% 70%;
+    --signal-negative-tint: 25 40% 18%;
+    --signal-negative-text: 25 70% 65%;
+
+    /* Category colors stay consistent in dark mode */
+    --gradient-hero: linear-gradient(135deg, hsl(192 87% 40%) 0%, hsl(199 85% 45%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(222 47% 8%) 0%, hsl(222 40% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 40% 14%) 0%, hsl(222 45% 10%) 100%);
+
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 8px 24px hsl(0 0% 0% / 0.5);
+    --shadow-glow: 0 0 20px hsl(192 87% 50% / 0.3);
+
+    --sidebar-background: 222 40% 10%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 192 87% 50%;
+    --sidebar-primary-foreground: 222 47% 8%;
+    --sidebar-accent: 222 35% 18%;
+    --sidebar-accent-foreground: 210 20% 80%;
+    --sidebar-border: 222 30% 22%;
+    --sidebar-ring: 192 87% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* iOS Safe Areas */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Trust color utility */
+  .bg-trust\/10 {
+    background-color: hsl(var(--trust) / 0.1);
+  }
+
+  .text-trust {
+    color: hsl(var(--trust));
+  }
+}
