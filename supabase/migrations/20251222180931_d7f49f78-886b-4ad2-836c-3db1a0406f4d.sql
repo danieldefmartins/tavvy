@@ -1,0 +1,46 @@
+-- Create place_feature enum for optional features
+CREATE TYPE public.place_feature AS ENUM (
+  'Full Hookups',
+  'Partial Hookups',
+  'Dry Camping',
+  'Pull Through Sites',
+  'Big Rig Friendly',
+  'Pet Friendly',
+  'Laundry',
+  'Showers',
+  'WiFi',
+  'Pool',
+  'Hot Tub',
+  'Playground',
+  'Dog Park',
+  'Fishing',
+  'Hiking',
+  'Beach Access',
+  'Lake Access',
+  'River Access',
+  'Boat Ramp',
+  'Dump Station',
+  'Propane',
+  'Store',
+  'Restaurant',
+  'Clubhouse',
+  'Fitness Center',
+  'Golf',
+  'Mini Golf',
+  'Game Room',
+  'Cable TV',
+  'Tent Sites',
+  'Cabins',
+  'Glamping',
+  'Long Term Stays',
+  'Seasonal Sites',
+  'Rally Friendly',
+  'Workamper Friendly',
+  'Military Discount',
+  'Good Sam Discount',
+  'Passport America'
+);
+
+-- Add features column to places table
+ALTER TABLE public.places
+ADD COLUMN features place_feature[] DEFAULT '{}'::place_feature[];
